@@ -84,7 +84,7 @@ const Home = () => {
             <span className="gradient-text"> Hobbies Hub</span>
           </h1>
           <p className="hero-subtitle">
-            A personal space to track, review, and celebrate the things I love
+            A space to track, review, and interact my Hobbies
           </p>
         </div>
       </div>
