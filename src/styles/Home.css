@@ -1,3 +1,6 @@
+/* ==========================
+   Home Page Layout
+========================== */
 .home-page {
   min-height: 100vh;
   padding: 2rem;
@@ -42,36 +45,20 @@
   font-weight: 400;
 }
 
+/* ==========================
+   Hobbies Grid
+========================== */
 .hobbies-grid {
   max-width: 1200px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  grid-auto-rows: minmax(220px, auto); /* consistent row height */
   gap: 2rem;
   padding: 0 2rem;
 }
 
-.hobbies-grid .hobby-tile:nth-child(3),
-.hobbies-grid .hobby-tile:nth-child(4),
-.hobbies-grid .hobby-tile:nth-child(5) {
-  grid-column: span 1;
-}
-
-/* Make last row have 3 equal columns */
-.hobbies-grid .hobby-tile:nth-child(3) {
-  grid-column: 1 / 2;
-}
-
-@media (max-width: 900px) {
-  .hobbies-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .hobbies-grid .hobby-tile:nth-child(n) {
-    grid-column: span 1 !important;
-  }
-}
-
+/* Hobby Tile */
 .hobby-tile {
   position: relative;
   padding: 3rem 2rem;
@@ -81,8 +68,12 @@
   overflow: hidden;
   animation: fadeIn 0.6s ease-out backwards;
   box-shadow: 0 4px 20px var(--shadow);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* content evenly spaced */
 }
 
+/* Overlay effect */
 .hobby-tile::before {
   content: '';
   position: absolute;
@@ -98,27 +89,13 @@
   background: rgba(0, 0, 0, 0.1);
 }
 
-.hobby-tile:nth-child(1) {
-  animation-delay: 0.1s;
-}
-
-.hobby-tile:nth-child(2) {
-  animation-delay: 0.2s;
-}
-
-.hobby-tile:nth-child(3) {
-  animation-delay: 0.3s;
-}
-
-.hobby-tile:nth-child(4) {
-  animation-delay: 0.4s;
-}
-
+/* Hover animation */
 .hobby-tile:hover {
   transform: translateY(-8px) scale(1.02);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
+/* Inactive tiles */
 .hobby-tile.inactive {
   opacity: 0.8;
 }
@@ -127,6 +104,7 @@
   transform: translateY(-4px);
 }
 
+/* Icon & Text */
 .hobby-icon {
   font-size: 4rem;
   margin-bottom: 1rem;
@@ -152,6 +130,7 @@
   z-index: 1;
 }
 
+/* Coming Soon Badge */
 .coming-soon-badge {
   position: absolute;
   top: 1rem;
@@ -166,7 +145,9 @@
   z-index: 2;
 }
 
-/* Modal Styles */
+/* ==========================
+   Modal Styles
+========================== */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -214,12 +195,11 @@
   color: var(--text-secondary);
   font-size: 2rem;
   cursor: pointer;
-  transition: color 0.2s;
-  width: 32px;
-  height: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 32px;
+  height: 32px;
 }
 
 .close-btn:hover {
@@ -237,15 +217,6 @@
 
 .modal-body strong {
   color: var(--primary);
-}
-
-.modal-body ul {
-  margin: 1rem 0;
-  padding-left: 1.5rem;
-}
-
-.modal-body li {
-  margin: 0.5rem 0;
 }
 
 .cta-button {
@@ -266,24 +237,13 @@
   transform: translateY(-2px);
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .home-page {
-    padding: 1rem;
-  }
-
-  .hero-section {
-    padding: 2rem 1rem;
-    margin-bottom: 2rem;
-  }
-
+/* ==========================
+   Responsive Design
+========================== */
+@media (max-width: 900px) {
   .hobbies-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
     padding: 0 1rem;
-  }
-
-  .modal-content {
-    padding: 2rem;
   }
 }
