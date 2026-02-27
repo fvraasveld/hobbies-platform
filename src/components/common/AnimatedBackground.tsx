@@ -7,12 +7,14 @@ interface Particle {
   vx: number;
   vy: number;
   radius: number;
+  opacity: number;
+  twinkleSpeed: number;
+  twinklePhase: number;
 }
 
 const AnimatedBackground: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const particlesRef = useRef<Particle[]>([]);
-  const mouseRef = useRef({ x: 0, y: 0 });
   const animationRef = useRef<number>();
 
   useEffect(() => {
@@ -22,69 +24,64 @@ const AnimatedBackground: React.FC = () => {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    // Set canvas size
-    const resizeCanvas = () => {
+    const setCanvasSize = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     };
-    resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
+    setCanvasSize();
 
-    // Initialize particles
-    const particleCount = 80;
-    particlesRef.current = Array.from({ length: particleCount }, () => ({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      vx: (Math.random() - 0.5) * 0.3,
-      vy: (Math.random() - 0.5) * 0.3,
-      radius: Math.random() * 2 + 1,
-    }));
+    const createParticles = () => {
+      const particles: Particle[] = [];
+      const numParticles = 120;
 
-    // Mouse move handler
-    const handleMouseMove = (e: MouseEvent) => {
-      mouseRef.current = { x: e.clientX, y: e.clientY };
+      for (let i = 0; i < numParticles; i++) {
+        particles.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          vx: (Math.random() - 0.5) * 0.3,
+          vy: (Math.random() - 0.5) * 0.3,
+          radius: Math.random() * 2 + 1,
+          opacity: Math.random() * 0.3 + 0.7,
+          twinkleSpeed: Math.random() * 0.02 + 0.01,
+          twinklePhase: Math.random() * Math.PI * 2
+        });
+      }
+      return particles;
     };
-    window.addEventListener('mousemove', handleMouseMove);
 
-    // Animation loop
+    particlesRef.current = createParticles();
+
     const animate = () => {
-      if (!ctx || !canvas) return;
-
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // Update and draw particles
       particlesRef.current.forEach((particle) => {
-        // Move particle
         particle.x += particle.vx;
         particle.y += particle.vy;
 
-        // Bounce off edges
-        if (particle.x < 0 || particle.x > canvas.width) particle.vx *= -1;
-        if (particle.y < 0 || particle.y > canvas.height) particle.vy *= -1;
+        if (particle.x < 0) particle.x = canvas.width;
+        if (particle.x > canvas.width) particle.x = 0;
+        if (particle.y < 0) particle.y = canvas.height;
+        if (particle.y > canvas.height) particle.y = 0;
 
-        // Mouse interaction - subtle attraction
-        const dx = mouseRef.current.x - particle.x;
-        const dy = mouseRef.current.y - particle.y;
-        const distance = Math.sqrt(dx * dx + dy * dy);
+        particle.twinklePhase += particle.twinkleSpeed;
+        const twinkle = Math.sin(particle.twinklePhase) * 0.4 + 0.6;
 
-        if (distance < 200) {
-          const force = (200 - distance) / 200;
-          particle.vx += (dx / distance) * force * 0.01;
-          particle.vy += (dy / distance) * force * 0.01;
-        }
+        const glowRadius = particle.radius * 4;
+        const gradient = ctx.createRadialGradient(
+          particle.x, particle.y, 0,
+          particle.x, particle.y, glowRadius
+        );
+        
+        gradient.addColorStop(0, `rgba(255, 255, 255, ${particle.opacity * twinkle})`);
+        gradient.addColorStop(0.3, `rgba(79, 172, 254, ${particle.opacity * twinkle * 0.6})`);
+        gradient.addColorStop(1, 'rgba(79, 172, 254, 0)');
 
-        // Damping
-        particle.vx *= 0.99;
-        particle.vy *= 0.99;
-
-        // Draw particle
+        ctx.fillStyle = gradient;
         ctx.beginPath();
-        ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(255, 255, 255, 0.6)';
+        ctx.arc(particle.x, particle.y, glowRadius, 0, Math.PI * 2);
         ctx.fill();
       });
 
-      // Draw connections (constellation lines)
       particlesRef.current.forEach((p1, i) => {
         particlesRef.current.slice(i + 1).forEach((p2) => {
           const dx = p1.x - p2.x;
@@ -92,12 +89,12 @@ const AnimatedBackground: React.FC = () => {
           const distance = Math.sqrt(dx * dx + dy * dy);
 
           if (distance < 150) {
+            const opacity = (1 - distance / 150) * 0.3;
+            ctx.strokeStyle = `rgba(79, 172, 254, ${opacity})`;
+            ctx.lineWidth = 1;
             ctx.beginPath();
             ctx.moveTo(p1.x, p1.y);
             ctx.lineTo(p2.x, p2.y);
-            const opacity = (1 - distance / 150) * 0.2;
-            ctx.strokeStyle = `rgba(147, 51, 234, ${opacity})`; // Purple
-            ctx.lineWidth = 0.5;
             ctx.stroke();
           }
         });
@@ -108,17 +105,27 @@ const AnimatedBackground: React.FC = () => {
 
     animate();
 
-    // Cleanup
+    const handleResize = () => {
+      setCanvasSize();
+      particlesRef.current = createParticles();
+    };
+
+    window.addEventListener('resize', handleResize);
+
     return () => {
-      window.removeEventListener('resize', resizeCanvas);
-      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('resize', handleResize);
       if (animationRef.current) {
         cancelAnimationFrame(animationRef.current);
       }
     };
   }, []);
 
-  return <canvas ref={canvasRef} className="animated-background" />;
+  return (
+    <canvas
+      ref={canvasRef}
+      className="animated-background"
+    />
+  );
 };
 
 export default AnimatedBackground;
