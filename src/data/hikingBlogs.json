@@ -1,0 +1,50 @@
+[
+  {
+    "id": "blog-1",
+    "title": "Conquering Mount Rainier: A Beginner's Guide to Mountaineering",
+    "author": "You",
+    "date": "2024-07-20",
+    "category": "Trip Reports",
+    "coverImage": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800",
+    "excerpt": "My first major mountaineering expedition - lessons learned, gear tips, and why starting at 3am is actually a good idea...",
+    "content": "After months of training and planning, I finally summited Mount Rainier! Here's everything I learned:\n\n**Training**: Started 6 months out with stair climbing (with weighted pack), cardio, and strength training. The altitude hit harder than expected!\n\n**Gear Essentials**: Crampons, ice axe, and layering system were crucial. Rented mountaineering boots - glad I tested them first.\n\n**The Climb**: We started at midnight from Camp Muir. The headlamp-lit glacier was surreal. Sunrise from 14,000 feet? Absolutely magical.\n\n**Tips for First-Timers**:\n- Hire a guide service (I used RMI)\n- Train at altitude if possible  \n- Don't underestimate the mental challenge\n- Bring twice as many snacks as you think you need\n\nWould I do it again? Absolutely!",
+    "tags": ["mountaineering", "washington", "training", "summit"],
+    "readTime": 5
+  },
+  {
+    "id": "blog-2",
+    "title": "Essential Gear for Your First Multi-Day Hike",
+    "author": "You",
+    "date": "2024-08-15",
+    "category": "Gear Guides",
+    "coverImage": "https://images.unsplash.com/photo-1508873881324-c92a3fc536ba?w=800",
+    "excerpt": "From backpack to sleeping bag - here's what actually matters when you're carrying your home on your back...",
+    "content": "Planning your first multi-day hike? Here's my tried-and-true gear list:\n\n**The Big 3:**\n1. **Backpack** (40-65L): Osprey Aura 65 - comfortable, durable\n2. **Shelter**: REI Quarter Dome 2 - lightweight, easy setup\n3. **Sleeping System**: 20°F down bag + inflatable pad\n\n**Kitchen**:\n- Jetboil stove (so fast!)\n- Titanium spork\n- Dehydrated meals (Mountain House is tasty)\n\n**Clothing**:\n- Merino wool base layers (worth the investment)\n- Puffy jacket (Patagonia Nano Puff)\n- Rain shell and pants (don't cheap out here)\n\n**Don't Forget**:\n- First aid kit\n- Water filter (Sawyer Squeeze)\n- Headlamp + extra batteries\n- Bear canister (if required)\n\n**My Biggest Lesson**: You don't need the most expensive gear, but do invest in comfort (pack fit, sleeping pad, good socks).",
+    "tags": ["gear", "backpacking", "beginners", "essentials"],
+    "readTime": 7
+  },
+  {
+    "id": "blog-3",
+    "title": "Angels Landing: How to Conquer Your Fear of Heights",
+    "author": "You",
+    "date": "2024-05-25",
+    "category": "Trip Reports",
+    "coverImage": "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=800",
+    "excerpt": "Terrified of heights? Me too. Here's how I made it up (and down) Angels Landing's famous chain section...",
+    "content": "Full disclosure: I'm afraid of heights. So why did I attempt Angels Landing?\n\n**Mental Prep**:\n- Watched videos (helps to know what to expect)\n- Reminded myself: thousands do this safely every year\n- Went with an experienced friend\n\n**The Reality**:\nThe chain section is 0.5 miles of exposed climbing. It's narrow, it's steep, and yes, it's scary. But:\n- The chains are VERY secure\n- There's always a handhold\n- You can take it at your own pace\n- People are super supportive\n\n**My Strategy**:\n1. Started at 6am to avoid crowds and heat\n2. Focused on the next chain, not the drop\n3. Took breaks at wider sections\n4. Three-point contact always\n5. Going DOWN was actually easier!\n\n**Was It Worth It?**\nAbsolutely. The views are incredible, and I'm so proud I pushed through my fear. Start early, take your time, and you've got this!",
+    "tags": ["zion", "fear", "mental-game", "bucket-list"],
+    "readTime": 6
+  },
+  {
+    "id": "blog-4",
+    "title": "Planning Your First Thru-Hike: Tour du Mont Blanc Prep",
+    "author": "You",
+    "date": "2024-11-10",
+    "category": "Planning",
+    "coverImage": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800",
+    "excerpt": "11 days, 170km, 3 countries - here's how I'm preparing for the TMB...",
+    "content": "I'm planning the Tour du Mont Blanc for summer 2026! Here's my preparation timeline:\n\n**12 Months Out (Now)**:\n- Research routes (clockwise vs counter-clockwise)\n- Start fitness training\n- Set budget (~€2000 including flights)\n\n**9 Months Out**:\n- Book flights to Geneva\n- Reserve mountain refuges (they fill up fast!)\n- Gear check - test everything on weekend trips\n\n**6 Months Out**:\n- Intensive training (long weekend hikes with full pack)\n- Break in new boots\n- Learn basic French/Italian phrases\n\n**3 Months Out**:\n- Finalize daily itinerary\n- Train at elevation if possible\n- Get travel insurance\n\n**1 Month Out**:\n- Final gear shakedown\n- Meal planning\n- Download offline maps\n\n**Training Focus**:\n- Back-to-back long days (TMB is 11 days straight!)\n- Hill repeats with weighted pack\n- Recovery protocols\n\nI'll document the whole journey - follow along!",
+    "tags": ["planning", "europe", "thru-hike", "training"],
+    "readTime": 8
+  }
+]
