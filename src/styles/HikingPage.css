@@ -27,49 +27,61 @@
   padding: 2rem;
 }
 
-.map-view {
+/* MAP VIEW */
+.map-view-container {
   background: var(--bg-card);
   border-radius: 16px;
-  padding: 3rem;
+  padding: 2rem;
   border: 1px solid var(--border);
 }
 
-.map-placeholder {
-  text-align: center;
-  padding: 4rem 2rem;
-}
-
-.map-placeholder h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 2rem;
-  margin-bottom: 1rem;
+.map-popup h3 {
+  margin: 0 0 8px 0;
+  font-size: 16px;
   color: var(--text-primary);
 }
 
-.map-features {
-  list-style: none;
-  padding: 0;
-  margin: 2rem 0;
-  text-align: left;
-  max-width: 500px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.map-features li {
-  padding: 0.75rem 0;
+.map-popup p {
+  margin: 4px 0;
+  font-size: 14px;
   color: var(--text-secondary);
-  font-size: 1rem;
 }
 
-.map-note {
-  margin-top: 2rem;
+.map-legend {
+  margin-top: 1.5rem;
   padding: 1rem;
-  background: rgba(79, 172, 254, 0.1);
+  background: var(--bg-secondary);
   border-radius: 8px;
+}
+
+.map-legend h3 {
+  margin: 0 0 0.75rem 0;
+  font-size: 1rem;
+  color: var(--text-primary);
+}
+
+.map-legend div {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.5rem 0;
   color: var(--text-secondary);
 }
 
+.legend-marker {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.legend-marker.green {
+  color: #10b981;
+}
+
+.legend-marker.red {
+  color: #ef4444;
+}
+
+/* HIKES GRID */
 .hikes-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -94,7 +106,7 @@
 }
 
 .hike-card.planned {
-  opacity: 0.8;
+  opacity: 0.9;
   border-style: dashed;
 }
 
@@ -175,6 +187,13 @@
   margin-bottom: 0.75rem;
 }
 
+.hike-description {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-size: 0.9375rem;
+  margin-bottom: 1rem;
+}
+
 .hike-notes {
   color: var(--text-primary);
   line-height: 1.6;
@@ -185,6 +204,29 @@
   border-radius: 8px;
   border-left: 3px solid #4facfe;
   margin-top: 1rem;
+}
+
+.hike-highlights {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: var(--bg-secondary);
+  border-radius: 8px;
+}
+
+.hike-highlights strong {
+  color: var(--text-primary);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.hike-highlights ul {
+  margin: 0;
+  padding-left: 1.5rem;
+  color: var(--text-secondary);
+}
+
+.hike-highlights li {
+  margin: 0.5rem 0;
 }
 
 .mark-completed-btn {
@@ -206,16 +248,375 @@
   color: white;
 }
 
+/* CALENDAR VIEW */
+.calendar-view {
+  background: var(--bg-card);
+  border-radius: 16px;
+  padding: 2rem;
+  border: 1px solid var(--border);
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.calendar-header h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: var(--text-primary);
+}
+
+.calendar-header button {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.25rem;
+  transition: all 0.2s;
+}
+
+.calendar-header button:hover {
+  background: #4facfe;
+  color: white;
+  border-color: #4facfe;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.calendar-day-header {
+  background: var(--bg-secondary);
+  padding: 1rem;
+  text-align: center;
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 0.875rem;
+}
+
+.calendar-day {
+  background: var(--bg-card);
+  padding: 0.75rem;
+  min-height: 100px;
+  position: relative;
+}
+
+.calendar-day.empty {
+  background: var(--bg-secondary);
+  opacity: 0.3;
+}
+
+.calendar-day.today {
+  background: rgba(79, 172, 254, 0.1);
+  border: 2px solid #4facfe;
+}
+
+.day-number {
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.event-dot {
+  font-size: 1.25rem;
+  margin: 0.25rem 0;
+  cursor: pointer;
+}
+
+.event-dot.planned-hike {
+  color: #4facfe;
+}
+
+.event-dot.training {
+  color: #10b981;
+}
+
+.event-dot.prep {
+  color: #f97316;
+}
+
+.event-dot.reminder {
+  color: #fbbf24;
+}
+
+.events-list {
+  margin-top: 2rem;
+}
+
+.events-list h3 {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.no-events {
+  text-align: center;
+  color: var(--text-secondary);
+  padding: 2rem;
+  font-style: italic;
+}
+
+.event-item {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background: var(--bg-secondary);
+  border-radius: 8px;
+  border-left: 4px solid #4facfe;
+}
+
+.event-item.training {
+  border-left-color: #10b981;
+}
+
+.event-item.prep {
+  border-left-color: #f97316;
+}
+
+.event-item.reminder {
+  border-left-color: #fbbf24;
+}
+
+.event-date {
+  font-weight: 700;
+  color: #4facfe;
+  min-width: 80px;
+}
+
+.event-details h4 {
+  margin: 0 0 0.5rem 0;
+  color: var(--text-primary);
+}
+
+.event-details p {
+  margin: 0.25rem 0;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+.event-notes {
+  font-style: italic;
+  color: var(--text-secondary);
+}
+
+/* BLOG VIEW */
+.blog-view {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.blog-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.blog-header h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.blog-header p {
+  color: var(--text-secondary);
+  font-size: 1.125rem;
+}
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.blog-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.blog-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+  border-color: #4facfe;
+}
+
+.blog-cover {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.blog-card-content {
+  padding: 1.5rem;
+}
+
+.blog-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.blog-category {
+  background: rgba(79, 172, 254, 0.15);
+  color: #4facfe;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.blog-date {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+.blog-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+}
+
+.blog-excerpt {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  font-size: 0.9375rem;
+}
+
+.blog-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+.read-time {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+.blog-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.tag {
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+}
+
+/* BLOG POST (Full View) */
+.blog-post {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.blog-post-cover {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 16px;
+  margin-bottom: 2rem;
+}
+
+.blog-post-content {
+  background: var(--bg-card);
+  padding: 2rem;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+}
+
+.blog-post-meta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.blog-post h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  color: var(--text-primary);
+  margin-bottom: 2rem;
+  line-height: 1.2;
+}
+
+.blog-post-text {
+  color: var(--text-primary);
+  line-height: 1.8;
+  font-size: 1.0625rem;
+}
+
+.blog-post-text p {
+  margin-bottom: 1.5rem;
+}
+
+.blog-post-text strong {
+  color: #4facfe;
+  font-weight: 600;
+}
+
+.blog-post .blog-tags {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+
+/* RESPONSIVE */
 @media (max-width: 768px) {
   .content-container {
     padding: 1rem;
   }
 
-  .hikes-grid {
+  .hikes-grid,
+  .blog-grid {
     grid-template-columns: 1fr;
   }
 
-  .map-placeholder {
-    padding: 2rem 1rem;
+  .calendar-grid {
+    font-size: 0.875rem;
+  }
+
+  .calendar-day {
+    min-height: 80px;
+    padding: 0.5rem;
+  }
+
+  .event-item {
+    flex-direction: column;
+  }
+
+  .blog-post h1 {
+    font-size: 2rem;
+  }
+
+  .blog-post-cover {
+    height: 250px;
   }
 }
