@@ -1,0 +1,70 @@
+[
+  {
+    "id": "event-1",
+    "title": "Tour du Mont Blanc - Day 1",
+    "date": "2026-07-01",
+    "type": "planned-hike",
+    "location": "Les Houches to Les Contamines",
+    "distance": 18,
+    "notes": "First day! Start easy, save energy."
+  },
+  {
+    "id": "event-2",
+    "title": "White Mountains Weekend",
+    "date": "2026-06-15",
+    "type": "planned-hike",
+    "location": "New Hampshire",
+    "distance": 25,
+    "notes": "Presidential Traverse attempt - weather dependent"
+  },
+  {
+    "id": "event-3",
+    "title": "Gear Shopping Day",
+    "date": "2026-03-10",
+    "type": "prep",
+    "location": "REI",
+    "notes": "Try on new boots, test backpacks"
+  },
+  {
+    "id": "event-4",
+    "title": "Training Hike - Local Trails",
+    "date": "2026-03-20",
+    "type": "training",
+    "location": "Nearby State Park",
+    "distance": 15,
+    "notes": "Full pack, test all gear"
+  },
+  {
+    "id": "event-5",
+    "title": "The Narrows Attempt",
+    "date": "2026-09-15",
+    "type": "planned-hike",
+    "location": "Zion National Park",
+    "distance": 16,
+    "notes": "Check water levels before going! Rent gear locally."
+  },
+  {
+    "id": "event-6",
+    "title": "Alpine Skills Course",
+    "date": "2026-05-01",
+    "type": "training",
+    "location": "Mountain Guides School",
+    "notes": "2-day glacier travel & crevasse rescue course"
+  },
+  {
+    "id": "event-7",
+    "title": "Wildflower Peak Season",
+    "date": "2026-07-15",
+    "type": "reminder",
+    "location": "Pacific Northwest",
+    "notes": "Best time for alpine wildflowers!"
+  },
+  {
+    "id": "event-8",
+    "title": "Permit Lottery Opens",
+    "date": "2026-02-01",
+    "type": "reminder",
+    "location": "Half Dome",
+    "notes": "Apply for summer permits - lotteries fill fast!"
+  }
+]
