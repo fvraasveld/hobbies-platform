@@ -15,7 +15,7 @@ L.Icon.Default.mergeOptions({
   shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
 });
 
-// Custom markers
+// Custom markers with better colors
 const greenIcon = new L.Icon({
   iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
   shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
@@ -150,12 +150,17 @@ const HikingPage = () => {
           <div className="map-view-container">
             <MapContainer 
               center={[40, -100]} 
-              zoom={4} 
+              zoom={4}
+              minZoom={2}
+              maxZoom={15}
+              maxBounds={[[-90, -180], [90, 180]]}
+              maxBoundsViscosity={1.0}
               style={{ height: '600px', width: '100%', borderRadius: '16px' }}
             >
               <TileLayer
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                noWrap={true}
               />
               {hikes.map(hike => (
                 <Marker 
@@ -163,20 +168,34 @@ const HikingPage = () => {
                   position={[hike.coordinates.lat, hike.coordinates.lng]}
                   icon={hike.status === 'completed' ? greenIcon : redIcon}
                 >
-                  <Popup>
-                    <div className="map-popup">
-                      <h3>{hike.name}</h3>
-                      <p><strong>📍</strong> {hike.location}</p>
-                      <p><strong>🥾</strong> {hike.distance} km</p>
-                      <p><strong>⛰️</strong> {hike.elevationGain} m elevation</p>
-                      <p><strong>📊</strong> {hike.difficulty}</p>
+                  <Popup className="custom-popup">
+                    <div className="modern-popup">
+                      <h3 className="popup-title">{hike.name}</h3>
+                      <div className="popup-location">📍 {hike.location}</div>
+                      <div className="popup-stats">
+                        <span className="popup-stat">🥾 {hike.distance} km</span>
+                        <span className="popup-stat">⛰️ {hike.elevationGain} m</span>
+                      </div>
+                      <div className={`popup-difficulty ${hike.difficulty}`}>
+                        {hike.difficulty.toUpperCase()}
+                      </div>
                       {hike.status === 'completed' && (
                         <>
-                          <p><strong>✅</strong> {new Date(hike.dateCompleted).toLocaleDateString()}</p>
-                          <p><strong>⭐</strong> {'★'.repeat(hike.myRating)}</p>
+                          <div className="popup-date">
+                            ✅ {new Date(hike.dateCompleted).toLocaleDateString('en-US', { 
+                              month: 'short', 
+                              day: 'numeric', 
+                              year: 'numeric' 
+                            })}
+                          </div>
+                          <div className="popup-rating">
+                            {'⭐'.repeat(hike.myRating)}
+                          </div>
                         </>
                       )}
-                      {hike.status === 'planned' && <p style={{color: '#f97316'}}>🎯 Planned</p>}
+                      {hike.status === 'planned' && (
+                        <div className="popup-planned">🎯 PLANNED</div>
+                      )}
                     </div>
                   </Popup>
                 </Marker>
@@ -184,9 +203,17 @@ const HikingPage = () => {
             </MapContainer>
             
             <div className="map-legend">
-              <h3>Legend:</h3>
-              <div><span className="legend-marker green">●</span> Completed Hikes</div>
-              <div><span className="legend-marker red">●</span> Planned Hikes</div>
+              <h3>Legend</h3>
+              <div className="legend-items">
+                <div className="legend-item">
+                  <span className="legend-marker green">●</span> 
+                  <span>Completed Hikes</span>
+                </div>
+                <div className="legend-item">
+                  <span className="legend-marker red">●</span> 
+                  <span>Planned Hikes</span>
+                </div>
+              </div>
             </div>
           </div>
         )}
