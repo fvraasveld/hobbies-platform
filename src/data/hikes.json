@@ -1,0 +1,136 @@
+[
+  {
+    "id": "hike-1",
+    "name": "Mount Rainier Summit",
+    "location": "Mount Rainier National Park, WA",
+    "coordinates": { "lat": 46.8523, "lng": -121.7603 },
+    "distance": 22.5,
+    "elevationGain": 2743,
+    "difficulty": "extreme",
+    "trailType": "out-and-back",
+    "status": "completed",
+    "dateCompleted": "2024-07-15",
+    "myRating": 5,
+    "myNotes": "Absolutely incredible! Started at 3am to catch sunrise at the summit. The glacier crossing was challenging but so rewarding. Best views of my life!",
+    "description": "The ultimate Washington challenge - summit the iconic Mount Rainier volcano",
+    "imageUrl": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600",
+    "season": "summer",
+    "tags": ["glacier", "mountaineering", "sunrise"],
+    "highlights": [
+      "360° panoramic views from summit",
+      "Glacier travel experience",
+      "Witnessed sunrise above the clouds"
+    ]
+  },
+  {
+    "id": "hike-2",
+    "name": "Angels Landing",
+    "location": "Zion National Park, UT",
+    "coordinates": { "lat": 37.2690, "lng": -112.9473 },
+    "distance": 8.7,
+    "elevationGain": 453,
+    "difficulty": "hard",
+    "trailType": "out-and-back",
+    "status": "completed",
+    "dateCompleted": "2024-05-20",
+    "myRating": 5,
+    "myNotes": "Heart-pounding! The chains section is no joke but the views are absolutely worth it. Went super early (6am start) to beat crowds.",
+    "description": "Famous for its thrilling chain section and breathtaking canyon views",
+    "imageUrl": "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=600",
+    "season": "spring",
+    "tags": ["chains", "exposed", "iconic"],
+    "highlights": [
+      "Gripping chain section",
+      "Spectacular canyon overlooks",
+      "Wildlife sightings (bighorn sheep!)"
+    ]
+  },
+  {
+    "id": "hike-3",
+    "name": "Half Dome",
+    "location": "Yosemite National Park, CA",
+    "coordinates": { "lat": 37.7459, "lng": -119.5332 },
+    "distance": 26,
+    "elevationGain": 1463,
+    "difficulty": "hard",
+    "trailType": "out-and-back",
+    "status": "completed",
+    "dateCompleted": "2024-06-10",
+    "myRating": 5,
+    "myNotes": "Brutal but beautiful! The cable climb at the end is terrifying and amazing. Permit lottery was worth it!",
+    "description": "Iconic Yosemite granite dome with cable ascent",
+    "imageUrl": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600",
+    "season": "summer",
+    "tags": ["cables", "granite", "permit-required"],
+    "highlights": [
+      "Cable climb to summit",
+      "Vernal & Nevada Falls on route",
+      "Sunset from the top"
+    ]
+  },
+  {
+    "id": "hike-4",
+    "name": "Tour du Mont Blanc",
+    "location": "Alps (France, Italy, Switzerland)",
+    "coordinates": { "lat": 45.8326, "lng": 6.8652 },
+    "distance": 170,
+    "elevationGain": 10000,
+    "difficulty": "extreme",
+    "trailType": "loop",
+    "status": "planned",
+    "myNotes": "Dream multi-day hike! Planning for summer 2026. Need to book refuges 6 months in advance.",
+    "description": "Epic 11-day trek around Mont Blanc through 3 countries",
+    "imageUrl": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=600",
+    "season": "summer",
+    "tags": ["multi-day", "europe", "alpine"],
+    "highlights": [
+      "Cross 3 countries",
+      "Stunning alpine meadows",
+      "Mountain refuges"
+    ]
+  },
+  {
+    "id": "hike-5",
+    "name": "The Narrows",
+    "location": "Zion National Park, UT",
+    "coordinates": { "lat": 37.2858, "lng": -112.9501 },
+    "distance": 16,
+    "elevationGain": 100,
+    "difficulty": "moderate",
+    "trailType": "out-and-back",
+    "status": "planned",
+    "myNotes": "Want to do this in fall for lower water levels. Need waterproof gear!",
+    "description": "Wade through the Virgin River between towering canyon walls",
+    "imageUrl": "https://images.unsplash.com/photo-1473448912268-2022ce9509d8?w=600",
+    "season": "fall",
+    "tags": ["river-walk", "slot-canyon", "unique"],
+    "highlights": [
+      "Walk in the river",
+      "Wall Street section",
+      "Narrow canyon passages"
+    ]
+  },
+  {
+    "id": "hike-6",
+    "name": "Franconia Ridge Loop",
+    "location": "White Mountains, NH",
+    "coordinates": { "lat": 44.1481, "lng": -71.6444 },
+    "distance": 14.5,
+    "elevationGain": 1100,
+    "difficulty": "hard",
+    "trailType": "loop",
+    "status": "completed",
+    "dateCompleted": "2024-09-28",
+    "myRating": 4,
+    "myNotes": "Perfect fall foliage! Ridge walk was exposed but incredible. Busy on weekends.",
+    "description": "Classic New England ridge traverse with stunning views",
+    "imageUrl": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600",
+    "season": "fall",
+    "tags": ["ridge", "fall-foliage", "exposed"],
+    "highlights": [
+      "Fall colors explosion",
+      "Exposed ridge walking",
+      "Multiple summits"
+    ]
+  }
+]
