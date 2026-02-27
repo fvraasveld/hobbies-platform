@@ -64,7 +64,7 @@ const AnimatedBackground: React.FC = () => {
         if (particle.y > canvas.height) particle.y = 0;
 
         particle.twinklePhase += particle.twinkleSpeed;
-        const twinkle = Math.sin(particle.twinklePhase) * 0.4 + 0.6;
+        const twinkle = Math.sin(particle.twinklePhase) * 0.3 + 0.7;
 
         const glowRadius = particle.radius * 4;
         const gradient = ctx.createRadialGradient(
