@@ -1,0 +1,57 @@
+.movies-page {
+  min-height: 100vh;
+  padding-bottom: 4rem;
+  position: relative;
+  z-index: 1;
+}
+
+.movies-page .page-title {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.movies-page .stat-number {
+  color: var(--secondary);
+}
+
+.movies-page .tab.active {
+  color: var(--secondary);
+  border-bottom-color: var(--secondary);
+}
+
+.movies-page .filter-select:hover,
+.movies-page .filter-select:focus {
+  border-color: var(--secondary);
+}
+
+.movies-page .filter-select:focus {
+  box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.1);
+}
+
+.movies-grid {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+@media (max-width: 768px) {
+  .movies-page .page-header {
+    padding: 1.5rem 1rem;
+  }
+
+  .movies-page .tabs-container,
+  .movies-page .filters-section,
+  .movies-grid {
+    padding: 0 1rem;
+  }
+
+  .movies-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
